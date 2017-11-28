@@ -8,7 +8,7 @@ float onMouseMove(const sf::Event::MouseMoveEvent &event, sf::Vector2f &mousePos
     mousePosition = {float(event.x), float(event.y)};
 }
 
-float toGrees(float radians)
+float todegrees(float radians)
 {
     return float(double(radians) * 180.0 / M_PI);
 }
@@ -104,7 +104,7 @@ void update(const sf::Vector2f &mousePosition, sf::ConvexShape &pointer, float t
 {
     const sf::Vector2f delta = mousePosition - pointer.getPosition();
     const float tg = atan2(delta.y, delta.x);
-    const float angle = invert(toGrees(tg));
+    const float angle = invert(todegrees(tg));
     turn(pointer, time, speed, angle);
 }
 
